@@ -12,3 +12,8 @@
   width: 4rem;
   background-color: aliceblue;
 }
+
+form .question {
+  display: flex;
+  flex-direction: column;
+}
