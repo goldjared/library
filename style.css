@@ -1,0 +1,14 @@
+.container {
+  height: 15rem;
+  width: auto;
+  background-color: rgb(216, 132, 132);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container>div {
+  height: 13rem;
+  width: 4rem;
+  background-color: aliceblue;
+}
