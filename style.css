@@ -17,3 +17,7 @@ form .question {
   display: flex;
   flex-direction: column;
 }
+
+form {
+  display: none;
+}
