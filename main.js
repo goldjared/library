@@ -29,14 +29,15 @@ function displayBook(array) {
     container.appendChild(bookItem);
     console.log(obj.info());
   });
+}
 
 const formButton = document.querySelector('.add-form');
 function formToggle(){
-  if(form.style.display === 'none') {
-    form.style.display = 'block';
-  } else {
+  if(form.style.display === 'block') {
     form.style.display = 'none';
-  };
+  } else {
+  form.style.display = 'block';
+  }
 }
 
 formButton.addEventListener('click', formToggle);
