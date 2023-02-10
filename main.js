@@ -14,9 +14,24 @@ function addBookToLibrary(info) {
   myLibrary.push(info)
 };  
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-
+const form = document.querySelector('form');
+let testArray = [];
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  for(let i = 0; i < 4; i++) {
+    testArray.push(form.elements[i].value);
+  }
+  if(testArray.length > 3) {
+    let newBook = new Book(testArray);
+    addBookToLibrary(newBook);
+    displayBook(myLibrary);
+    newBook = undefined;
+    testArray = [];
+    formToggle();
+    form.reset();
+    form.elements.value = undefined;
+  }
+});
 
 function displayBook(array) {
   const container = document.querySelector('.container');
