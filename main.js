@@ -40,9 +40,14 @@ function displayBook(array) {
   }
   array.forEach(obj => {
     const bookItem = document.createElement('div');
+    bookItem.classList.add('page');
     bookItem.textContent = obj.info();
     container.appendChild(bookItem);
-    console.log(obj.info());
+    
+    const bookItemButton = document.createElement('button');
+    bookItemButton.classList.add('delete-button');
+    bookItemButton.textContent = 'X';
+    bookItem.appendChild(bookItemButton);
   });
 }
 
