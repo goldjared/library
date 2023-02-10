@@ -24,6 +24,9 @@ addBookToLibrary(book2);
 
 function displayBook(array) {
   const container = document.querySelector('.container');
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
   array.forEach(obj => {
     const bookItem = document.createElement('div');
     bookItem.textContent = obj.info();
