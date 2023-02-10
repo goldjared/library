@@ -30,7 +30,16 @@ function displayBook(array) {
     console.log(obj.info());
   });
 
+const formButton = document.querySelector('.add-form');
+function formToggle(){
+  if(form.style.display === 'none') {
+    form.style.display = 'block';
+  } else {
+    form.style.display = 'none';
+  };
 }
 
-displayBook(myLibrary);
+formButton.addEventListener('click', formToggle);
+
+
 
