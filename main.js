@@ -1,18 +1,14 @@
 let myLibrary = [];
 
-
-function Book(title, author, pages, read) {
+function Book([title, author, pages, read]) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
   this.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages}, ${this.read}`;
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
   };
-}
-
-const book1 = new Book('The Hobbit', 'J.R.R Tolkien', 300, 'Read');
-const book2 = new Book('The Hobbitses', 'J.R.R Tolkiensss', 300, 'Read');
+};
 
 function addBookToLibrary(info) {
   myLibrary.push(info)
