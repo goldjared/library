@@ -46,16 +46,22 @@ function displayBook(libraryArray) {
 
     bookItem.dataset.index = libraryArray.indexOf(obj);
     
-    const bookItemButton = document.createElement('button');
-    bookItemButton.addEventListener('click', () => {
+    const bookItemDelete = document.createElement('button');
+    bookItemDelete.addEventListener('click', () => {
       bookItem.dataset.index = myLibrary.indexOf(obj);
-      myLibrary.splice(bookItemButton.parentNode.dataset.index, 1);
-      bookItemButton.parentNode.remove();
+      myLibrary.splice(bookItemDelete.parentNode.dataset.index, 1);
+      bookItemDelete.parentNode.remove();
     });
-    bookItem.appendChild(bookItemButton);
-    bookItemButton.classList.add('delete-button');
-    bookItemButton.textContent = 'X';
-    bookItem.appendChild(bookItemButton);
+    bookItem.appendChild(bookItemDelete);
+    bookItemDelete.classList.add('delete-button');
+    bookItemDelete.textContent = 'X';
+    bookItem.appendChild(bookItemDelete);
+
+    const bookItemRead = document.createElement('button');
+    bookItemRead.classList.add('read-toggle');
+    bookItemRead.textContent = 'READ';
+    bookItem.appendChild(bookItemRead);
+    bookItemRead.addEventListener('click', readToggle);
   });
 }
 
