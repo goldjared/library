@@ -15,18 +15,18 @@ function addBookToLibrary(info) {
 };  
 
 const form = document.querySelector('form');
-let testArray = [];
+let tempArray = [];
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   for(let i = 0; i < 4; i++) {
-    testArray.push(form.elements[i].value);
+    tempArray.push(form.elements[i].value);
   }
-  if(testArray.length > 3) {
+  if(tempArray.length > 3) {
     let newBook = new Book(testArray);
     addBookToLibrary(newBook);
     displayBook(myLibrary);
     newBook = undefined;
-    testArray = [];
+    tempArray = [];
     formToggle();
     form.reset();
     form.elements.value = undefined;
