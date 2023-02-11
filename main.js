@@ -22,7 +22,7 @@ form.addEventListener('submit', (e) => {
     tempArray.push(form.elements[i].value);
   }
   if(tempArray.length > 3) {
-    let newBook = new Book(testArray);
+    let newBook = new Book(tempArray);
     addBookToLibrary(newBook);
     displayBook(myLibrary);
     newBook = undefined;
