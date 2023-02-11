@@ -44,6 +44,8 @@ function displayBook(array) {
     bookItem.textContent = obj.info();
     container.appendChild(bookItem);
     
+    bookItem.dataset.index = array.indexOf(obj);
+    
     const bookItemButton = document.createElement('button');
     bookItemButton.classList.add('delete-button');
     bookItemButton.textContent = 'X';
