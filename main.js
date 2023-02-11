@@ -33,20 +33,26 @@ form.addEventListener('submit', (e) => {
   }
 });
 
-function displayBook(array) {
+function displayBook(libraryArray) {
   const container = document.querySelector('.container');
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
-  array.forEach(obj => {
+  libraryArray.forEach(obj => {
     const bookItem = document.createElement('div');
     bookItem.classList.add('page');
     bookItem.textContent = obj.info();
     container.appendChild(bookItem);
-    
-    bookItem.dataset.index = array.indexOf(obj);
+
+    bookItem.dataset.index = libraryArray.indexOf(obj);
     
     const bookItemButton = document.createElement('button');
+    bookItemButton.addEventListener('click', () => {
+      bookItem.dataset.index = myLibrary.indexOf(obj);
+      myLibrary.splice(bookItemButton.parentNode.dataset.index, 1);
+      bookItemButton.parentNode.remove();
+    });
+    bookItem.appendChild(bookItemButton);
     bookItemButton.classList.add('delete-button');
     bookItemButton.textContent = 'X';
     bookItem.appendChild(bookItemButton);
