@@ -51,6 +51,7 @@ function displayBook(libraryArray) {
       bookItem.dataset.index = myLibrary.indexOf(obj);
       myLibrary.splice(bookItemDelete.parentNode.dataset.index, 1);
       bookItemDelete.parentNode.remove();
+      displayBook(myLibrary);
     });
     bookItem.appendChild(bookItemDelete);
     bookItemDelete.classList.add('delete-button');
