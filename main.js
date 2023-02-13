@@ -59,12 +59,20 @@ function displayBook(libraryArray) {
     bookItem.appendChild(bookItemDelete);
 
     const bookItemRead = document.createElement('button');
-    bookItemRead.classList.add('read-toggle');
+    bookItemRead.classList.add('book-read');
     bookItemRead.textContent = 'READ';
     bookItem.appendChild(bookItemRead);
-    bookItemRead.addEventListener('click', readToggle);
+    
+    bookItemRead.addEventListener('click', (e) => {
+      function toggleRead(value){
+        return (value === 'yes' ? 'no' : 'yes');
+      };
+      myLibrary[e.target.closest('.page').dataset.index].read = 
+      toggleRead(myLibrary[e.target.closest('.page').dataset.index].read);
+      displayBook(myLibrary);
+    });
   });
-}
+};
 
 const formButton = document.querySelector('.add-form');
 function formToggle(){
