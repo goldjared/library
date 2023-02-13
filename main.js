@@ -16,11 +16,12 @@ function addBookToLibrary(info) {
 
 const form = document.querySelector('form');
 let tempArray = [];
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   for(let i = 0; i < 4; i++) {
-    tempArray.push(form.elements[i].value);
-  }
+    tempArray.push(form.elements[i].value.toLowerCase());
+  };
   if(tempArray.length > 3) {
     let newBook = new Book(tempArray);
     addBookToLibrary(newBook);
@@ -30,7 +31,7 @@ form.addEventListener('submit', (e) => {
     formToggle();
     form.reset();
     form.elements.value = undefined;
-  }
+  };
 });
 
 function displayBook(libraryArray) {
@@ -81,9 +82,6 @@ function formToggle(){
   } else {
   form.style.display = 'block';
   }
-}
+};
 
 formButton.addEventListener('click', formToggle);
-
-
-
