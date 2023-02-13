@@ -20,7 +20,7 @@ let tempArray = [];
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   for(let i = 0; i < 4; i++) {
-    tempArray.push(form.elements[i].value.toLowerCase());
+    tempArray.push(form.elements[i].value);
   };
   if(tempArray.length > 3) {
     let newBook = new Book(tempArray);
@@ -66,7 +66,7 @@ function displayBook(libraryArray) {
     
     bookItemRead.addEventListener('click', (e) => {
       function toggleRead(value){
-        return (value === 'yes' ? 'no' : 'yes');
+        return (value === 'Yes' ? 'No' : 'Yes');
       };
       myLibrary[e.target.closest('.page').dataset.index].read = 
       toggleRead(myLibrary[e.target.closest('.page').dataset.index].read);
