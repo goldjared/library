@@ -30,6 +30,20 @@ function addBookToLibrary(info) {
 const form = document.querySelector('form');
 let tempArray = [];
 
+const pages = document.getElementById('pages');
+
+pages.addEventListener('input', (e) => {
+  console.log(e);
+
+
+  if(pages.validity.rangeOverflow) {
+    pages.setCustomValidity('too big of number!');
+    console.log(pages.checkValidity());
+  } else {
+    pages.setCustomValidity('');
+  }
+})
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   for(let i = 0; i < 4; i++) {
@@ -97,4 +111,27 @@ function formToggle(){
   }
 };
 
+const title = document.getElementById('title');
+const titleError = document.querySelector('#title + span.error');
+
+title.addEventListener('input', (e) => {
+  if(title.validity.valid) {
+    titleError.textContent = '';
+    titleError.className = "error";
+  } else {
+    showError();
+  }
+  
+})
+function showError() {
+  if(!title.validity.valid) {
+    titleError.textContent = 'needs value.'
+  } else if(pages.validity.rangeOverflow) {
+    titleError.textContent = 'too long'
+  } else if(pages.validity.tooShort) {
+    titleError.textContent = 'too long'
+  }
+
+titleError.className = "error active";
+}
 formButton.addEventListener('click', formToggle);
